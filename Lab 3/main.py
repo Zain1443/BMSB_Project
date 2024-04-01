@@ -10,9 +10,6 @@ import psycopg2
 
 app = Flask(__name__)
 
-gj_start = """{"type": "FeatureCollection", "features": """
-gj_end = "}"
-
 database = 'bmsb_project_shared'
 user = 'postgres'
 password = 'Hyderabad43%'
