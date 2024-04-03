@@ -15,7 +15,7 @@ port = '5432'
 
 # Set variables for additions to GeoJSON for formatting
 gj_start = '{"type":"FeatureCollection", "features":['
-gj_end = ']}'
+gj_end = '], "crs":{"type":"name","properties":{"type":"EPSG:4326"}}}'
 
 # Set up application to perform a function
 @app.route('/')
