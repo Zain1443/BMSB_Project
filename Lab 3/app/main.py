@@ -13,6 +13,10 @@ password = 'Hyderabad43%'
 host = '35.238.64.215'
 port = '5432'
 
+# Set variables for additions to GeoJSON for formatting
+gj_start = '{"type":"FeatureCollection", "features":['
+gj_end = '}'
+
 # Set up application to perform a function
 @app.route('/')
 def true_temp_gj():
@@ -37,13 +41,14 @@ def true_temp_gj():
     
     # Restructure the GeoJSON into correct format
     true_temp_gj = (str(cursor.fetchall())).replace("\'","").replace("[([","").replace("],)]","")
+    true_temp_gj_final = gj_start + true_temp_gj + gj_end
     
     # Close cursor and connection
     cursor.close()
     conn.close()
     
     # Return GeoJSON
-    return true_temp_gj
+    return true_temp_gj_final
 
 # Set up application to perform a function
 @app.route('/')
@@ -69,13 +74,14 @@ def interp_temp_gj():
     
     # Restructure the GeoJSON into correct format
     interp_temp_gj = (str(cursor.fetchall())).replace("\'","").replace("[([","").replace("],)]","")
+    interp_temp_gj_final = gj_start + interp_temp_gj + gj_end
     
     # Close cursor and connection
     cursor.close()
     conn.close()
     
     # Return GeoJSON
-    return interp_temp_gj
+    return interp_temp_gj_final
 
 # Set up application to perform a function
 @app.route('/')
@@ -101,13 +107,14 @@ def true_elev_gj():
     
     # Restructure the GeoJSON into correct format
     true_elev_gj = str(cursor.fetchall()).replace("[([","").replace("],)]","")
+    true_elev_gj_final = gj_start + true_elev_gj + gj_end
     
     # Close cursor and connection
     cursor.close()
     conn.close()
     
     # Return GeoJSON
-    return true_elev_gj
+    return true_elev_gj_final
 
 # Set up application to perform a function
 @app.route('/')
@@ -133,18 +140,19 @@ def interp_elev_gj():
     
     # Restructure the GeoJSON into correct format
     interp_elev_gj = str(cursor.fetchall()).replace("[([","").replace("],)]","")
+    interp_elev_gj_final = gj_start + interp_elev_gj + gj_end
     
     # Close cursor and connection
     cursor.close()
     conn.close()
     
     # Return GeoJSON
-    return interp_elev_gj
+    return interp_elev_gj_final
 
 # Run the application
 if __name__ == "__main__":
     app.run(
-        debug = False,
+        debug = True,
         host = "0.0.0.0",
         port = int(os.environ.get("PORT",8080))
     )
