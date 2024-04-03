@@ -18,7 +18,7 @@ gj_start = '{"type":"FeatureCollection", "features":['
 gj_end = ']}'
 
 # Set up application to perform a function
-@app.route('/')
+@app.route('/true_temp_gj')
 def true_temp_gj():
     
     # Connect to SDE database
@@ -51,7 +51,7 @@ def true_temp_gj():
     return true_temp_gj_final
 
 # Set up application to perform a function
-@app.route('/')
+@app.route('/interp_temp_gj')
 def interp_temp_gj():
     
     # Connect to SDE database
@@ -84,7 +84,7 @@ def interp_temp_gj():
     return interp_temp_gj_final
 
 # Set up application to perform a function
-@app.route('/')
+@app.route('/true_elev_gj')
 def true_elev_gj():
     
     # Connect to SDE database
@@ -117,7 +117,7 @@ def true_elev_gj():
     return true_elev_gj_final
 
 # Set up application to perform a function
-@app.route('/')
+@app.route('/interp_elev_gj')
 def interp_elev_gj():
     
     # Connect to SDE database
