@@ -14,7 +14,7 @@ host = '35.238.64.215'
 port = '5432'
 
 # Set up application to perform a function
-@app.route('/true_mn_temp')
+@app.route('/')
 def true_temp_gj():
     
     # Connect to SDE database
@@ -46,7 +46,7 @@ def true_temp_gj():
     return true_temp_gj
 
 # Set up application to perform a function
-@app.route('/interp_mn_temp')
+@app.route('/')
 def interp_temp_gj():
     
     # Connect to SDE database
@@ -78,7 +78,7 @@ def interp_temp_gj():
     return interp_temp_gj
 
 # Set up application to perform a function
-@app.route('/true_mn_elev')
+@app.route('/')
 def true_elev_gj():
     
     # Connect to SDE database
@@ -110,7 +110,7 @@ def true_elev_gj():
     return true_elev_gj
 
 # Set up application to perform a function
-@app.route('/interp_mn_elev')
+@app.route('/')
 def interp_elev_gj():
     
     # Connect to SDE database
