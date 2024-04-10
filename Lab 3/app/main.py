@@ -106,7 +106,7 @@ def true_elev_gj():
     cursor.execute(query)
     
     # Restructure the GeoJSON into correct format
-    true_elev_gj = str(cursor.fetchall()).replace("[([","").replace("],)]","")
+    true_elev_gj = str(cursor.fetchall()).replace("[([","").replace("],)]","").replace("'","")
     true_elev_gj_final = gj_start + true_elev_gj + gj_end
     
     # Close cursor and connection
@@ -139,7 +139,7 @@ def interp_elev_gj():
     cursor.execute(query)
     
     # Restructure the GeoJSON into correct format
-    interp_elev_gj = str(cursor.fetchall()).replace("[([","").replace("],)]","")
+    interp_elev_gj = str(cursor.fetchall()).replace("[([","").replace("],)]","").replace("'","")
     interp_elev_gj_final = gj_start + interp_elev_gj + gj_end
     
     # Close cursor and connection
