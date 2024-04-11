@@ -34,7 +34,7 @@ def true_temp_gj():
     cursor = conn.cursor()
     
     # Create a variable for a query to extract the GeoJSON
-    query = "SELECT JSON_AGG(ST_AsGeoJSON(mn_clean_weather)) FROM mn_clean_weather"
+    query = "SELECT JSON_AGG(ST_AsGeoJSON(temp_idw_points)) FROM temp_idw_points"
     
     # Execute the query
     cursor.execute(query)
@@ -67,7 +67,7 @@ def interp_temp_gj():
     cursor = conn.cursor()
     
     # Create a variable for a query to extract the GeoJSON
-    query = "SELECT JSON_AGG(ST_AsGeoJSON(ebk_points)) FROM ebk_points"
+    query = "SELECT JSON_AGG(ST_AsGeoJSON(temp_idw_accuracy)) FROM temp_idw_accuracy"
     
     # Execute the query
     cursor.execute(query)
@@ -100,7 +100,7 @@ def true_elev_gj():
     cursor = conn.cursor()
     
     # Create a variable for a query to extract the GeoJSON
-    query = "SELECT JSON_AGG(ST_AsGeoJSON(mndem_points)) FROM mndem_points"
+    query = "SELECT JSON_AGG(ST_AsGeoJSON(digital_elevation_model_5km_points)) FROM digital_elevation_model_5km_points"
     
     # Execute the query
     cursor.execute(query)
@@ -133,7 +133,7 @@ def interp_elev_gj():
     cursor = conn.cursor()
     
     # Create a variable for a query to extract the GeoJSON
-    query = "SELECT JSON_AGG(ST_AsGeoJSON(ebk_dempoints)) FROM ebk_dempoints"
+    query = "SELECT JSON_AGG(ST_AsGeoJSON(elev_ord_accuracy)) FROM elev_ord_accuracy"
     
     # Execute the query
     cursor.execute(query)
