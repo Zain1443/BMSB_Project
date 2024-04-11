@@ -18,11 +18,6 @@ gj_start = '{"type":"FeatureCollection", "features":['
 gj_end = ']}'
 
 # Set up application to perform a function
-@app.route('/')
-def home():
-    return "GIS5572 - Lab 3"
-
-# Set up application to perform a function
 @app.route('/true_temp_gj')
 def true_temp_gj():
     
