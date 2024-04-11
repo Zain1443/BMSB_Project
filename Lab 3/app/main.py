@@ -18,6 +18,21 @@ gj_start = '{"type":"FeatureCollection", "features":['
 gj_end = ']}'
 
 # Set up application to perform a function
+@app.route('/')
+def home():
+    
+    # Connect to SDE database
+    conn = psycopg2.connect(
+        database = database,
+        user = user,
+        password = password,
+        host = host,
+        port = port
+    )
+
+    return "GIS5572 - Lab 3"
+
+# Set up application to perform a function
 @app.route('/true_temp_gj')
 def true_temp_gj():
     
