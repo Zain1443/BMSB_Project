@@ -17,6 +17,10 @@ port = '5432'
 gj_start = '{"type":"FeatureCollection", "features":['
 gj_end = ']}'
 
+@app.route('/')
+def home():
+    return "Lab 3 GIS5572"
+
 # Set up application to perform a function
 @app.route('/true_temp_gj')
 def true_temp_gj():
