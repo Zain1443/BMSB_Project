@@ -23,7 +23,7 @@ def home():
 
 # Set up application to perform a function
 @app.route('/BMSB_rank')
-def true_temp_gj():
+def mn_cities_rank():
     
     # Connect to SDE database
     conn = psycopg2.connect(
@@ -45,7 +45,7 @@ def true_temp_gj():
     
     # Restructure the GeoJSON into correct format
     mn_cities_rank = (str(cursor.fetchall())).replace("\'","").replace("[([","").replace("],)]","")
-    mn_cities_rank_final = gj_start + true_temp_gj + gj_end
+    mn_cities_rank_final = gj_start + mn_cities_rank + gj_end
     
     # Close cursor and connection
     cursor.close()
