@@ -1,4 +1,4 @@
-# Import necessary libraries
+d# Import necessary libraries
 from flask import Flask, jsonify
 import os
 import psycopg2
@@ -38,7 +38,7 @@ def mn_cities_rank():
     cursor = conn.cursor()
     
     # Create a variable for a query to extract the GeoJSON
-    query = "SELECT JSON_AGG(ST_AsGeoJSON(mn_cities_2_rank)) FROM mn_cities_2_rank"
+    query = "SELECT JSON_AGG(ST_AsGeoJSON(mn_cities_2_ranked)) FROM mn_cities_2_ranked"
     
     # Execute the query
     cursor.execute(query)
