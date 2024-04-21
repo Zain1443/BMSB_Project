@@ -1,4 +1,4 @@
-d# Import necessary libraries
+# Import necessary libraries
 from flask import Flask, jsonify
 import os
 import psycopg2
