@@ -38,7 +38,7 @@ def true_temp_gj():
     cursor = conn.cursor()
     
     # Create a variable for a query to extract the GeoJSON
-    query = "SELECT JSON_AGG(ST_AsGeoJSON(mn_cities_2_rank)) FROM mn_cities_2_rank"
+    query = "SELECT JSON_AGG(ST_AsGeoJSON(mn_cities_2_ranked_wgs84)) FROM mn_cities_2_ranked_wgs84"
     
     # Execute the query
     cursor.execute(query)
