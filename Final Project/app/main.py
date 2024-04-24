@@ -88,7 +88,7 @@ def mn_cities_rank_alpha175():
     return mn_cities_rank_a175_final
 
 # Set up application to perform a function
-@app.route('/BMSB_rank_alpha175')
+@app.route('/BMSB_rank_alpha15')
 def mn_cities_rank_alpha15():
     
     # Connect to SDE database
