@@ -22,8 +22,8 @@ def home():
     return "Final Project GIS5572"
 
 # Set up application to perform a function
-@app.route('/BMSB_rank')
-def mn_cities_rank():
+@app.route('/BMSB_rank_alpha2')
+def mn_cities_rank_alpha2():
     
     # Connect to SDE database
     conn = psycopg2.connect(
@@ -44,15 +44,81 @@ def mn_cities_rank():
     cursor.execute(query)
     
     # Restructure the GeoJSON into correct format
-    mn_cities_rank = (str(cursor.fetchall())).replace("\'","").replace("[([","").replace("],)]","")
-    mn_cities_rank_final = gj_start + mn_cities_rank + gj_end
+    mn_cities_rank_a2 = (str(cursor.fetchall())).replace("\'","").replace("[([","").replace("],)]","")
+    mn_cities_rank_a2_final = gj_start + mn_cities_rank_a2 + gj_end
     
     # Close cursor and connection
     cursor.close()
     conn.close()
     
     # Return GeoJSON
-    return mn_cities_rank_final
+    return mn_cities_rank_a2_final
+
+# Set up application to perform a function
+@app.route('/BMSB_rank_alpha175')
+def mn_cities_rank_alpha175():
+    
+    # Connect to SDE database
+    conn = psycopg2.connect(
+        database = database,
+        user = user,
+        password = password,
+        host = host,
+        port = port
+    )
+    
+    # Set up cursor
+    cursor = conn.cursor()
+    
+    # Create a variable for a query to extract the GeoJSON
+    query = "SELECT JSON_AGG(ST_AsGeoJSON(mn_cities_175_ranked_wgs84)) FROM mn_cities_175_ranked_wgs84"
+    
+    # Execute the query
+    cursor.execute(query)
+    
+    # Restructure the GeoJSON into correct format
+    mn_cities_rank_a175 = (str(cursor.fetchall())).replace("\'","").replace("[([","").replace("],)]","")
+    mn_cities_rank_a175_final = gj_start + mn_cities_rank_a175 + gj_end
+    
+    # Close cursor and connection
+    cursor.close()
+    conn.close()
+    
+    # Return GeoJSON
+    return mn_cities_rank_a175_final
+
+# Set up application to perform a function
+@app.route('/BMSB_rank_alpha175')
+def mn_cities_rank_alpha15():
+    
+    # Connect to SDE database
+    conn = psycopg2.connect(
+        database = database,
+        user = user,
+        password = password,
+        host = host,
+        port = port
+    )
+    
+    # Set up cursor
+    cursor = conn.cursor()
+    
+    # Create a variable for a query to extract the GeoJSON
+    query = "SELECT JSON_AGG(ST_AsGeoJSON(mn_cities_15_ranked_wgs84)) FROM mn_cities_15_ranked_wgs84"
+    
+    # Execute the query
+    cursor.execute(query)
+    
+    # Restructure the GeoJSON into correct format
+    mn_cities_rank_a15 = (str(cursor.fetchall())).replace("\'","").replace("[([","").replace("],)]","")
+    mn_cities_rank_a15_final = gj_start + mn_cities_rank_a15 + gj_end
+    
+    # Close cursor and connection
+    cursor.close()
+    conn.close()
+    
+    # Return GeoJSON
+    return mn_cities_rank_a15_final
 
 # Run the application
 if __name__ == "__main__":
